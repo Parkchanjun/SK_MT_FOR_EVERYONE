@@ -1,0 +1,18 @@
+model_dir: toy-ende/run/
+
+data:
+  train_features_file: toy-ende/src-train.txt
+  train_labels_file: toy-ende/tgt-train.txt
+  eval_features_file: toy-ende/src-val.txt
+  eval_labels_file: toy-ende/tgt-val.txt
+  source_words_vocabulary: toy-ende/src-vocab.txt
+  target_words_vocabulary: toy-ende/tgt-vocab.txt
+
+train:
+  save_checkpoints_steps: 1000
+
+  eval:
+    eval_delay: 3600  # Every 1 hour
+    external_evaluators: BLEU
+infer:
+    batch_size: 32
